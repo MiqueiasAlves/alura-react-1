@@ -140,7 +140,7 @@ function CadastroCategoria(){
           {categorias.map(function(categoria, indice){
             return (
             <li key={`${categoria}${indice}`}>
-               {categoria.titulo}
+                {categoria.titulo}
              </li>
             )
           })}
@@ -148,6 +148,7 @@ function CadastroCategoria(){
       </PageDefault>
     )
 }
+
 
 
 export default CadastroCategoria;
