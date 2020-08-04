@@ -3,6 +3,8 @@ import  React, { useState, useEffect } from 'react'
 import PageDefault from '../../../components/PageDefault';
 import FormField from '../../../components/FormField';
 import Button from '../../../components/Button';
+import useForm from '../../../hooks/useForms';
+
 
 function CadastroCategoria(){
   const  valoreInciais = {
@@ -10,23 +12,13 @@ function CadastroCategoria(){
     descricao: '',
     cor: '#000000',
   }
+
+
+
+  const { handlerChange, values, clearForm } = useForm(valoreInciais);
+
   const [categorias, setCategorias] = useState([]);
-
-  const [values, setValues] = useState(valoreInciais);
-
-
-
-  function setValue(chave, valor){
-    setValues({
-      ...values,
-      [chave] : valor 
-    })
-  }
-
-  function handlerChange(event){
-    //const {getAttribute, value } = event.target
-    setValue(event.target.getAttribute('name'), event.target.value)
-  }
+ 
 
 
   useEffect(() => {
@@ -77,7 +69,7 @@ function CadastroCategoria(){
           ...categorias,
           values
         ]);
-        setValues(valoreInciais)
+        clearForm()
 
       }}>
      
